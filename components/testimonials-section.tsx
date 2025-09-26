@@ -77,7 +77,7 @@ export function TestimonialsSection() {
             
             <CardContent className="p-8 md:p-12 relative z-10">
               <div className="flex justify-center mb-6">
-                <Quote className="h-16 w-16 text-accent/30" />
+                <Quote className="h-16 w-16 text-primary/30" />
               </div>
 
               <div className="text-center space-y-8">

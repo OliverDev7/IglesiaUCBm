@@ -64,7 +64,7 @@ export default function BlogPage() {
       titulo: "El Poder de la Oración en Tiempos Difíciles",
       resumen:
         "Descubre cómo la oración puede transformar tu perspectiva y darte paz en medio de las tormentas de la vida.",
-      fecha: "15 de Enero, 2024",
+      fecha: "15 de Abril, 2025",
       autor: "Hermano Miguel",
       categoria: "Espiritualidad",
       imagen: "/person-praying-peaceful.jpg",
@@ -75,7 +75,7 @@ export default function BlogPage() {
       titulo: "Viviendo con Propósito: Descubre tu Llamado",
       resumen:
         "Cada persona tiene un propósito único en el plan de Dios. Aprende cómo descubrir y vivir tu llamado divino.",
-      fecha: "8 de Enero, 2024",
+      fecha: "8 de Abril, 2025",
       autor: "Hermano Hernan",
       categoria: "Propósito",
       imagen: "/proposito.jpeg",
@@ -86,7 +86,7 @@ export default function BlogPage() {
       titulo: "La Importancia de la Comunidad Cristiana",
       resumen:
         "Dios nos diseñó para vivir en comunidad. Explora por qué necesitamos unos a otros en nuestro caminar de fe.",
-      fecha: "1 de Enero, 2024",
+      fecha: "10 de Enero, 2025",
       autor: "Hermano Hernan",
       categoria: "Comunidad",
       imagen: "/christian-community-fellowship.jpg",
@@ -96,7 +96,7 @@ export default function BlogPage() {
     {
       titulo: "Testimonio: Mi Encuentro con Jesús",
       resumen: "La historia personal de María sobre cómo Dios transformó su vida y le dio una nueva esperanza.",
-      fecha: "25 de Diciembre, 2023",
+      fecha: "25 de Agosto, 2025",
       autor: "María González",
       categoria: "Testimonio",
       imagen: "/woman-testimony-joy.jpg",
@@ -107,7 +107,7 @@ export default function BlogPage() {
       titulo: "Criando Hijos en la Fe: Consejos Prácticos",
       resumen:
         "Estrategias bíblicas y prácticas para guiar a nuestros hijos en su desarrollo espiritual desde temprana edad.",
-      fecha: "18 de Diciembre, 2023",
+      fecha: "2 de Septiembre, 2025",
       autor: "Hermano Juan",
       categoria: "Familia",
       imagen: "/familia.jpg",
@@ -118,7 +118,7 @@ export default function BlogPage() {
       titulo: "La Esperanza que No Defrauda",
       resumen:
         "En un mundo lleno de incertidumbre, la esperanza cristiana nos ofrece una base sólida e inquebrantable.",
-      fecha: "11 de Diciembre, 2023",
+      fecha: "11 de Julio, 2025",
       autor: "Hermano Miguel",
       categoria: "Esperanza",
       imagen: "/sunrise-hope-light.jpg",

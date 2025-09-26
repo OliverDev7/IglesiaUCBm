@@ -39,7 +39,7 @@ export function HeroSection() {
           </div>
 
           {/* Bible Verse */}
-          <div className="bg-card/80 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-border/50 shadow-lg">
+          <div className="bg-primary/5 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border-1 border-primary shadow-lg">
             <div className="flex items-center justify-center mb-3">
               <Heart className="h-6 w-6 text-primary mr-2" />
               <span className="text-sm font-semibold text-primary">Versículo del día</span>
