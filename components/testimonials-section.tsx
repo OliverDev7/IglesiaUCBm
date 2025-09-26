@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react"
 
 const testimonials = [
   {
@@ -12,6 +12,7 @@ const testimonials = [
     content:
       "Esta iglesia cambió mi vida. Encontré no solo una comunidad de fe, sino una familia que me ama y me apoya en cada momento. El amor de Dios se siente real aquí.",
     image: "/smiling-hispanic-woman-portrait.jpg",
+    rating: 5
   },
   {
     name: "Rodrigo Cerda",
@@ -19,6 +20,7 @@ const testimonials = [
     content:
       "Como joven, siempre me sentí perdido hasta que llegué aquí. Los líderes me guiaron con paciencia y ahora puedo servir a otros jóvenes que buscan su propósito en Dios.",
     image: "/young-hispanic-man-smiling-portrait.jpg",
+    rating: 5
   },
   {
     name: "Ana y Pedro Martín",
@@ -26,6 +28,7 @@ const testimonials = [
     content:
       "Nuestros hijos han crecido en esta iglesia y han aprendido valores sólidos. Es hermoso ver cómo toda la congregación se involucra en el crecimiento de nuestras familias.",
     image: "/hispanic-family-couple-portrait.jpg",
+    rating: 5
   },
 ]
 
@@ -46,65 +49,110 @@ export function TestimonialsSection() {
   }, [])
 
   return (
-    <section className="py-16 bg-background">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-balance">Testimonios de Fe</h2>
-          <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-            Escucha las historias de transformación y esperanza de nuestra comunidad.
+    <section className="py-20 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-accent/5 to-transparent"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center space-y-6 mb-16">
+          <div className="inline-flex items-center space-x-2 bg-accent/20 px-4 py-2 rounded-full border border-accent/30">
+            <Quote className="h-4 w-4 text-accent" />
+            <span className="text-sm font-medium text-accent">Testimonios Reales</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-balance bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+            Vidas Transformadas por Cristo
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
+            Descubre cómo Dios está obrando en las vidas de nuestra comunidad de fe.
           </p>
         </div>
 
+        {/* Testimonial Carousel */}
         <div className="relative">
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50">
-            <CardContent className="p-8">
+          <Card className="bg-card/80 backdrop-blur-md border-border/50 shadow-xl relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -translate-y-16 translate-x-16"></div>
+            
+            <CardContent className="p-8 md:p-12 relative z-10">
               <div className="flex justify-center mb-6">
-                <Quote className="h-12 w-12 text-accent" />
+                <Quote className="h-16 w-16 text-accent/30" />
               </div>
 
-              <div className="text-center space-y-6">
-                <blockquote className="text-lg md:text-xl italic text-balance leading-relaxed">
+              <div className="text-center space-y-8">
+                {/* Rating Stars */}
+                <div className="flex justify-center space-x-1">
+                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                  ))}
+                </div>
+
+                {/* Testimonial Content */}
+                <blockquote className="text-xl md:text-2xl italic text-balance leading-relaxed font-light">
                   "{testimonials[currentIndex].content}"
                 </blockquote>
 
-                <div className="flex flex-col items-center space-y-2">
-                  <img
-                    src={testimonials[currentIndex].image || "/placeholder.svg"}
-                    alt={testimonials[currentIndex].name}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                {/* Author Info */}
+                <div className="flex flex-col items-center space-y-4">
+                  <div className="relative">
+                    <img
+                      src={testimonials[currentIndex].image || "/placeholder.svg"}
+                      alt={testimonials[currentIndex].name}
+                      className="w-20 h-20 rounded-full object-cover border-4 border-accent/20"
+                    />
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                      <Quote className="h-4 w-4 text-primary" />
+                    </div>
+                  </div>
                   <div>
-                    <p className="font-semibold">{testimonials[currentIndex].name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonials[currentIndex].role}</p>
+                    <p className="font-bold text-lg">{testimonials[currentIndex].name}</p>
+                    <p className="text-accent font-medium">{testimonials[currentIndex].role}</p>
                   </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Navigation Buttons */}
-          <div className="flex justify-center space-x-4 mt-6">
-            <Button variant="outline" size="icon" onClick={prevTestimonial}>
-              <ChevronLeft className="h-4 w-4" />
+          {/* Navigation Controls */}
+          <div className="flex justify-between items-center mt-8">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={prevTestimonial}
+              className="rounded-full border-2 w-12 h-12 hover:bg-accent hover:text-primary transition-all"
+            >
+              <ChevronLeft className="h-5 w-5" />
             </Button>
-            <Button variant="outline" size="icon" onClick={nextTestimonial}>
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center space-x-2 mt-4">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-accent" : "bg-muted-foreground/30"
-                }`}
-                onClick={() => setCurrentIndex(index)}
-              />
-            ))}
+            {/* Dots Indicator */}
+            <div className="flex space-x-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? "bg-accent scale-125" 
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                  onClick={() => setCurrentIndex(index)}
+                />
+              ))}
+            </div>
+
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={nextTestimonial}
+              className="rounded-full border-2 w-12 h-12 hover:bg-accent hover:text-primary transition-all"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
           </div>
         </div>
+
+        {/* Additional Info */}
+        
       </div>
     </section>
   )
