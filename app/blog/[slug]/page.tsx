@@ -1,7 +1,7 @@
 "use client"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Calendar, User, ArrowLeft, Share2, Facebook, MessageCircle, Instagram } from "lucide-react"
+import { Calendar, User, ArrowLeft, Share2, Facebook, MessageCircle, Instagram, Heart } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -16,9 +16,9 @@ const articulosCompletos = {
     resumen:
       "Descubre cómo la oración puede transformar tu perspectiva y darte paz en medio de las tormentas de la vida.",
     fecha: "15 de Enero, 2024",
-    autor: "Pastor Miguel",
+    autor: "Hermano Miguel",
     categoria: "Espiritualidad",
-    imagen: "/person-praying-peacefully.jpg",
+    imagen: "/person-praying-peaceful.jpg",
     contenido: `
       <p>En los momentos más oscuros de nuestra vida, cuando las circunstancias parecen abrumadoras y el futuro incierto, la oración se convierte en nuestro refugio más poderoso. No es simplemente un ritual religioso, sino una comunicación íntima con nuestro Padre celestial que tiene el poder de transformar no solo nuestras circunstancias, sino también nuestro corazón.</p>
 
@@ -66,9 +66,9 @@ const articulosCompletos = {
     resumen:
       "Cada persona tiene un propósito único en el plan de Dios. Aprende cómo descubrir y vivir tu llamado divino.",
     fecha: "8 de Enero, 2024",
-    autor: "Pastora Ana",
+    autor: "Hermano Hernan",
     categoria: "Propósito",
-    imagen: "/person-helping-others-with-purpose.jpg",
+    imagen: "/proposito.jpeg",
     contenido: `
       <p>Una de las preguntas más profundas que podemos hacernos es: "¿Para qué estoy aquí?" Esta búsqueda de propósito no es solo una curiosidad filosófica, sino una necesidad fundamental del alma humana. Como cristianos, tenemos la bendición de saber que no estamos aquí por accidente, sino que fuimos creados con un propósito específico en el corazón de Dios.</p>
 
@@ -136,7 +136,7 @@ const articulosCompletos = {
     resumen:
       "Dios nos diseñó para vivir en comunidad. Explora por qué necesitamos unos a otros en nuestro caminar de fe.",
     fecha: "1 de Enero, 2024",
-    autor: "Pastor Miguel",
+    autor: "Hermano Hernan",
     categoria: "Comunidad",
     imagen: "/christian-community-fellowship.jpg",
     contenido: `
@@ -293,9 +293,9 @@ const articulosCompletos = {
     resumen:
       "Estrategias bíblicas y prácticas para guiar a nuestros hijos en su desarrollo espiritual desde temprana edad.",
     fecha: "18 de Diciembre, 2023",
-    autor: "Pastora Ana",
+    autor: "Hermano Juan",
     categoria: "Familia",
-    imagen: "/placeholder-xfyxi.png",
+    imagen: "/familia.jpg",
     contenido: `
       <p>Una de las responsabilidades más importantes y desafiantes que Dios nos ha dado como padres es la de guiar a nuestros hijos en su desarrollo espiritual. En un mundo que constantemente compite por la atención y el corazón de nuestros pequeños, ¿cómo podemos asegurar que crezcan con una fe sólida y personal en Jesucristo?</p>
 
@@ -417,7 +417,7 @@ const articulosCompletos = {
     titulo: "La Esperanza que No Defrauda",
     resumen: "En un mundo lleno de incertidumbre, la esperanza cristiana nos ofrece una base sólida e inquebrantable.",
     fecha: "11 de Diciembre, 2023",
-    autor: "Pastor Miguel",
+    autor: "Hermano Miguel",
     categoria: "Esperanza",
     imagen: "/sunrise-hope-light.jpg",
     contenido: `
@@ -528,18 +528,23 @@ export default function ArticlePage() {
 
   if (!articulo) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50 to-white">
         <Header />
-        <main className="py-16">
+        <main className="flex-1 py-8 md:py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-2xl font-bold mb-4">Artículo no encontrado</h1>
-            <p className="text-muted-foreground mb-8">El artículo que buscas no existe o ha sido movido.</p>
-            <Button asChild className="bg-accent hover:bg-accent/90">
-              <Link href="/blog">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Volver al Blog
-              </Link>
-            </Button>
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-blue-100">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-blue-500" />
+              </div>
+              <h1 className="text-xl md:text-2xl font-bold mb-4 text-slate-800">Artículo no encontrado</h1>
+              <p className="text-slate-600 mb-6 md:mb-8">El artículo que buscas no existe o ha sido movido.</p>
+              <Button asChild className="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white">
+                <Link href="/blog">
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Volver al Blog
+                </Link>
+              </Button>
+            </div>
           </div>
         </main>
         <Footer />
@@ -563,7 +568,6 @@ export default function ArticlePage() {
   }
 
   const shareOnInstagram = () => {
-    // Instagram no permite compartir enlaces directamente, así que copiamos al portapapeles
     const url = window.location.href
     const text = `Te recomiendo este artículo: "${articulo.titulo}" - ${url}`
     navigator.clipboard.writeText(text).then(() => {
@@ -573,15 +577,15 @@ export default function ArticlePage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />
-      <main>
+      <main className="flex-1">
         {/* Back to Blog */}
-        <section className="py-8 border-b">
+        <section className="py-4 md:py-8 border-b border-blue-100">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Button asChild variant="ghost" className="mb-4">
+            <Button asChild variant="ghost" className="mb-2 md:mb-4 text-sm md:text-base text-blue-600 hover:text-blue-700 hover:bg-blue-50">
               <Link href="/blog">
-                <ArrowLeft className="h-4 w-4 mr-2" />
+                <ArrowLeft className="h-3 w-3 md:h-4 md:w-4 mr-2" />
                 Volver al Blog
               </Link>
             </Button>
@@ -589,122 +593,137 @@ export default function ArticlePage() {
         </section>
 
         {/* Article Header */}
-        <section className="py-16">
+        <section className="py-8 md:py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <Badge variant="secondary" className="mb-4">
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-blue-100 mb-6 md:mb-8">
+              <Badge className="mb-3 md:mb-4 text-xs md:text-sm bg-gradient-to-r from-blue-500 to-teal-500 text-white border-0">
                 {articulo.categoria}
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-balance mb-6">{articulo.titulo}</h1>
-              <div className="flex items-center space-x-6 text-muted-foreground mb-6">
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 mr-2" />
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-balance mb-4 md:mb-6 leading-tight text-slate-800">
+                {articulo.titulo}
+              </h1>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-slate-600 mb-4 md:mb-6">
+                <div className="flex items-center text-sm md:text-base">
+                  <Calendar className="h-4 w-4 md:h-5 md:w-5 mr-2 text-blue-500" />
                   {articulo.fecha}
                 </div>
-                <div className="flex items-center">
-                  <User className="h-5 w-5 mr-2" />
+                <div className="flex items-center text-sm md:text-base">
+                  <User className="h-4 w-4 md:h-5 md:w-5 mr-2 text-blue-500" />
                   {articulo.autor}
                 </div>
               </div>
-              <p className="text-xl text-muted-foreground text-pretty leading-relaxed">{articulo.resumen}</p>
+              <p className="text-lg md:text-xl text-slate-700 text-pretty leading-relaxed border-l-3 border-blue-300 pl-4 bg-blue-50 rounded-r py-2">
+                {articulo.resumen}
+              </p>
             </div>
 
             {/* Featured Image */}
-            <div className="mb-12">
+            <div className="mb-8 md:mb-12">
               <img
                 src={articulo.imagen || "/placeholder.svg"}
                 alt={articulo.titulo}
-                className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 md:h-64 lg:h-96 object-cover rounded-2xl shadow-lg border-4 border-white"
               />
             </div>
 
             {/* Share Buttons */}
-            <Card className="mb-12 bg-muted">
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center">
-                    <Share2 className="h-5 w-5 mr-2 text-accent" />
-                    <span className="font-semibold">Compartir este artículo:</span>
+            <Card className="mb-8 md:mb-12 bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200 shadow-sm">
+              <CardContent className="p-4 md:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center justify-center sm:justify-start">
+                    <Share2 className="h-4 w-4 md:h-5 md:w-5 mr-2 text-blue-600" />
+                    <span className="font-semibold text-sm md:text-base text-slate-700">Compartir este artículo:</span>
                   </div>
-                  <div className="flex space-x-3">
+                  <div className="flex justify-center sm:justify-end flex-wrap gap-2">
                     <Button
                       onClick={shareOnWhatsApp}
-                      variant="outline"
                       size="sm"
-                      className="bg-green-500 hover:bg-green-600 text-white border-green-500"
+                      className="bg-green-500 hover:bg-green-600 text-white border-0 shadow-sm transition-all duration-300 transform hover:scale-105"
                     >
-                      <MessageCircle className="h-4 w-4 mr-2" />
+                      <MessageCircle className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       WhatsApp
                     </Button>
                     <Button
                       onClick={shareOnFacebook}
-                      variant="outline"
                       size="sm"
-                      className="bg-blue-600 hover:bg-blue-700 text-white border-blue-600"
+                      className="bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-sm transition-all duration-300 transform hover:scale-105"
                     >
-                      <Facebook className="h-4 w-4 mr-2" />
+                      <Facebook className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       Facebook
                     </Button>
                     <Button
                       onClick={shareOnInstagram}
-                      variant="outline"
                       size="sm"
-                      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-purple-500"
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0 shadow-sm transition-all duration-300 transform hover:scale-105"
                     >
-                      <Instagram className="h-4 w-4 mr-2" />
+                      <Instagram className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       Instagram
                     </Button>
                   </div>
                 </div>
-                {shareMessage && <p className="text-sm text-green-600 mt-3 text-center">{shareMessage}</p>}
+                {shareMessage && (
+                  <p className="text-sm text-green-600 mt-3 text-center bg-green-50 py-1 rounded-lg">
+                    {shareMessage}
+                  </p>
+                )}
               </CardContent>
             </Card>
 
             {/* Article Content */}
-            <div
-              className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground"
-              dangerouslySetInnerHTML={{ __html: articulo.contenido }}
-            />
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-blue-100">
+              <div
+                className="prose prose-sm md:prose-lg max-w-none 
+                  prose-headings:text-slate-800 prose-headings:font-bold
+                  prose-p:text-slate-700 prose-p:leading-relaxed
+                  prose-strong:text-slate-800
+                  prose-li:text-slate-700
+                  prose-headings:border-b prose-headings:border-blue-200 prose-headings:pb-2
+                  prose-blockquote:border-l-blue-400 prose-blockquote:bg-blue-50 prose-blockquote:italic
+                  prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md"
+                dangerouslySetInnerHTML={{ __html: articulo.contenido }}
+              />
+            </div>
 
             {/* Share Buttons Bottom */}
-            <Card className="mt-12 bg-accent text-accent-foreground">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">¿Te gustó este artículo?</h3>
-                <p className="mb-6 text-accent-foreground/80">
+            <Card className="mt-8 md:mt-12 bg-gradient-to-r from-blue-500 to-teal-500 text-white border-0 shadow-lg">
+              <CardContent className="p-6 md:p-8 text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">¿Te bendijo este artículo?</h3>
+                <p className="mb-4 md:mb-6 text-white/90 text-sm md:text-base">
                   Compártelo con tus amigos y familiares para que ellos también puedan ser bendecidos.
                 </p>
-                <div className="flex justify-center space-x-4 flex-wrap gap-2">
+                <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
                   <Button
                     onClick={shareOnWhatsApp}
-                    variant="secondary"
-                    className="bg-background text-foreground hover:bg-background/90"
+                    className="bg-white text-green-600 hover:bg-green-50 border-0 shadow-sm transition-all duration-300"
                   >
                     <MessageCircle className="h-4 w-4 mr-2" />
-                    Compartir en WhatsApp
+                    WhatsApp
                   </Button>
                   <Button
                     onClick={shareOnFacebook}
-                    variant="secondary"
-                    className="bg-background text-foreground hover:bg-background/90"
+                    className="bg-white text-blue-600 hover:bg-blue-50 border-0 shadow-sm transition-all duration-300"
                   >
                     <Facebook className="h-4 w-4 mr-2" />
-                    Compartir en Facebook
+                    Facebook
                   </Button>
                   <Button
                     onClick={shareOnInstagram}
-                    variant="secondary"
-                    className="bg-background text-foreground hover:bg-background/90"
+                    className="bg-white text-pink-600 hover:bg-pink-50 border-0 shadow-sm transition-all duration-300"
                   >
                     <Instagram className="h-4 w-4 mr-2" />
-                    Copiar para Instagram
+                    Instagram
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
             {/* Back to Blog */}
-            <div className="mt-12 text-center">
-              <Button asChild className="bg-accent hover:bg-accent/90">
+            <div className="mt-8 md:mt-12 text-center">
+              <Button asChild className="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white shadow-sm">
                 <Link href="/blog">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Volver al Blog

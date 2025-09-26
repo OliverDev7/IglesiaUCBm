@@ -1,56 +1,26 @@
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
-// Configuración CORREGIDA de TurboSMTP
+// Configuración de Gmail
 const transporter = nodemailer.createTransport({
-  host: "smtp.turbosmtp.com",
-  port: 587, // Puerto recomendado para TurboSMTP
-  secure: false, // false para 587 (usa STARTTLS)
+  service: "gmail",
   auth: {
-    user: process.env.TURBOSMTP_USER,
-    pass: process.env.TURBOSMTP_PASSWORD,
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
+  // Configuración adicional para mejor rendimiento
+  pool: true,
+  maxConnections: 1,
+  rateDelta: 20000,
+  rateLimit: 5
 })
-
-// Función de validación de datos
-function validateFormData(type: string, data: any): string | null {
-  switch (type) {
-    case "contact":
-      if (!data.nombre || !data.email || !data.mensaje) {
-        return "Faltan campos requeridos: nombre, email, mensaje"
-      }
-      if (!isValidEmail(data.email)) {
-        return "El formato del email no es válido"
-      }
-      break
-    case "newsletter":
-    case "resources":
-    case "blog":
-      if (!data.email) return "El email es requerido"
-      if (!isValidEmail(data.email)) {
-        return "El formato del email no es válido"
-      }
-      break
-    default:
-      if (!data.email && !data.correo && !data.mail) {
-        return "Se requiere al menos un campo de email"
-      }
-  }
-  return null
-}
-
-// Función para validar formato de email
-function isValidEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
-}
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { type, ...data } = body
 
-    // Validar que el tipo esté presente
+    // Validaciones
     if (!type) {
       return NextResponse.json(
         { 
@@ -61,7 +31,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Validar los datos del formulario
     const validationError = validateFormData(type, data)
     if (validationError) {
       return NextResponse.json(
@@ -70,33 +39,30 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Verificar conexión
+    await transporter.verify()
+    console.log("✅ Conexión con Gmail verificada")
+
     // Generar contenido del email
     const { subject, htmlContent, textContent } = generateEmailContent(type, data)
 
-    // Verificar la conexión SMTP
-    await transporter.verify()
-    console.log("✅ Conexión SMTP verificada correctamente")
-
-    // Configurar opciones del email
-    const mailOptions = {
+    // Enviar email
+    const emailResponse = await transporter.sendMail({
       from: {
         name: "Iglesia Cristiana - Formulario Web",
-        address: process.env.TURBOSMTP_FROM_EMAIL || process.env.TURBOSMTP_USER || "noreply@iglesiacristiana.com"
+        address: process.env.GMAIL_USER!
       },
-      to: ["byronsalga345@gmail.com"],
+      to: ["byronsalga345@gmail.com"], // Email donde recibes los formularios
       subject: subject,
       html: htmlContent,
       text: textContent,
-      replyTo: data.email || data.correo || data.mail || process.env.TURBOSMTP_FROM_EMAIL,
-      // Agregar headers para mejor compatibilidad
+      replyTo: data.email || data.correo || data.mail, // Email del usuario
+      // Headers importantes
       headers: {
-        "X-Priority": "3",
-        "X-Mailer": "Node.js/Nodemailer"
+        'X-Priority': '3',
+        'X-Mailer': 'Node.js/Nodemailer'
       }
-    }
-
-    // Enviar el email
-    const emailResponse = await transporter.sendMail(mailOptions)
+    })
 
     console.log("✅ Email enviado exitosamente:", emailResponse.messageId)
 
@@ -109,15 +75,13 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("❌ Error enviando email:", error)
     
-    // Mensajes de error más específicos
     let errorMessage = "Error al enviar el email"
+    
     if (error instanceof Error) {
-      if (error.message.includes("Authentication failed")) {
-        errorMessage = "Error de autenticación con el servidor de email. Verifica las credenciales."
-      } else if (error.message.includes("ECONNREFUSED")) {
-        errorMessage = "No se puede conectar al servidor de email. Verifica la configuración SMTP."
-      } else if (error.message.includes("Invalid login")) {
-        errorMessage = "Usuario o contraseña incorrectos para el servicio de email."
+      if (error.message.includes("Invalid login")) {
+        errorMessage = "Error de autenticación. Verifica la contraseña de aplicación."
+      } else if (error.message.includes("QUOTA")) {
+        errorMessage = "Límite de emails alcanzado. Intenta más tarde."
       } else {
         errorMessage = error.message
       }
@@ -134,7 +98,39 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Función para generar el contenido del email (mejorada)
+// Función de validación
+function validateFormData(type: string, data: any): string | null {
+  const email = data.email || data.correo || data.mail
+  
+  switch (type) {
+    case "contact":
+      if (!data.nombre || !email || !data.mensaje) {
+        return "Faltan campos requeridos: nombre, email, mensaje"
+      }
+      break
+    case "newsletter":
+    case "resources":
+    case "blog":
+      if (!email) return "El email es requerido"
+      break
+    default:
+      if (!email) return "Se requiere al menos un campo de email"
+  }
+  
+  // Validar formato de email si existe
+  if (email && !isValidEmail(email)) {
+    return "El formato del email no es válido"
+  }
+  
+  return null
+}
+
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
+
+// Función generateEmailContent (MANTIENE TU CÓDIGO ORIGINAL)
 function generateEmailContent(type: string, data: any) {
   const currentDate = new Date().toLocaleString("es-ES", {
     timeZone: "America/Guayaquil",
