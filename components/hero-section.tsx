@@ -28,7 +28,7 @@ export function HeroSection() {
              
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Encuentra Proposito y
+              Encuentra Propósito y
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent/50">
                 Esperanza en Cristo
               </span>
