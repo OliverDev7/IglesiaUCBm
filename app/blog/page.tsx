@@ -147,14 +147,14 @@ export default function BlogPage() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg scale-150"></div>
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg scale-150"></div>
                   <div className="relative bg-background/80 backdrop-blur-sm rounded-full p-4 border border-primary/10 shadow-lg">
-                    <BookOpen className="h-16 w-16 text-accent" />
+                    <BookOpen className="h-16 w-16 text-primary" />
                   </div>
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent/40 bg-clip-text text-transparent">
                 Blog Cristiano
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -175,8 +175,8 @@ export default function BlogPage() {
                   variant={categoria === selectedCategory ? "default" : "outline"}
                   className={`cursor-pointer text-sm px-4 py-2 rounded-full transition-all duration-300 ${
                     categoria === selectedCategory 
-                      ? "bg-gradient-to-r from-accent to-accent/90 text-white shadow-lg" 
-                      : "bg-white/80 hover:bg-accent/10 hover:text-accent border-2"
+                      ? "bg-gradient-to-r from-primary to-white/10 text-white shadow-lg" 
+                      : "bg-white/80 hover:bg-primary/10 hover:text-primary border-1"
                   }`}
                   onClick={() => setSelectedCategory(categoria)}
                 >
@@ -202,7 +202,7 @@ export default function BlogPage() {
                 </p>
               </div>
 
-              <Card className="overflow-hidden border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 group">
+              <Card className="overflow-hidden border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 group bg-white">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   <div className="relative overflow-hidden">
                     <img
@@ -211,7 +211,7 @@ export default function BlogPage() {
                       className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-white/90 backdrop-blur-sm text-gray-900 border-0 font-semibold">
+                      <Badge className="bg-primary backdrop-blur-sm text-white border-0 font-semibold">
                         {articulosFiltrados[0].categoria}
                       </Badge>
                     </div>
@@ -233,7 +233,7 @@ export default function BlogPage() {
                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                       {articulosFiltrados[0].resumen}
                     </p>
-                    <Button asChild className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <Button asChild className="bg-gradient-to-r from-primary to-white/10 hover:from-white/90 hover:to-white hover:text-black shadow-lg group-hover:scale-105 transition-transform duration-300">
                       <Link href={`/blog/${articulosFiltrados[0].slug}`}>
                         Leer Artículo
                         <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -263,7 +263,7 @@ export default function BlogPage() {
             {articulosFiltrados.length > 1 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {articulosFiltrados.slice(1).map((articulo, index) => (
-                  <Card key={index} className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
+                  <Card key={index} className="group relative overflow-hidden border-0 shadow-lg bg-white hover:shadow-2xl transition-all duration-300">
                     <div className="relative overflow-hidden">
                       <img
                         src={articulo.imagen || "/placeholder.svg"}
@@ -292,7 +292,7 @@ export default function BlogPage() {
                       <p className="text-muted-foreground mb-6 text-sm leading-relaxed line-clamp-3">
                         {articulo.resumen}
                       </p>
-                      <Button asChild variant="outline" className="w-full border-2 group-hover:border-accent group-hover:text-accent transition-all duration-300">
+                      <Button asChild variant="outline" className="w-full hover:bg-primary border-2 group-hover:border-primary group-hover:text-primary transition-all duration-300">
                         <Link href={`/blog/${articulo.slug}`}>
                           Leer Más
                           <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -324,7 +324,7 @@ export default function BlogPage() {
         {/* Newsletter Signup */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-primary/90 to-accent/80 text-white">
+            <Card className="relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-primary/90 to-accent/20 text-white">
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-white/5 rounded-full blur-xl"></div>

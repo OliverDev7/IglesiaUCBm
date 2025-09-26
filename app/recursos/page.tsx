@@ -279,14 +279,14 @@ const recursos = [
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg scale-150"></div>
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg scale-150"></div>
                   <div className="relative bg-background/80 backdrop-blur-sm rounded-full p-4 border border-primary/10 shadow-lg">
-                    <BookOpen className="h-16 w-16 text-accent" />
+                    <BookOpen className="h-16 w-16 text-primary" />
                   </div>
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent/50 bg-clip-text text-transparent">
                 Recursos Espirituales
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -301,7 +301,7 @@ const recursos = [
        {/* Newsletter Signup */}
 <section className="py-16">
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <Card className="relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-primary/90 to-accent/80 text-white">
+    <Card className="relative overflow-hidden border-0 shadow-2xl bg-gradient-to-br from-primary/90 to-accent/20 text-white">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
@@ -402,7 +402,7 @@ const recursos = [
                         </CardHeader>
                         <CardContent className="relative z-10">
                           <Button
-                            className="w-full bg-transparent hover:bg-accent/10 text-accent border-2 border-accent/20 hover:border-accent/40 transition-all duration-300"
+                            className="w-full bg-transparent hover:bg-primary/10 text-black border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:text-black"
                             variant="outline"
                             onClick={() => handleDownload(item.titulo, item.tipo)}
                           >
@@ -439,13 +439,13 @@ const recursos = [
                     </div>
                   </div>
                   <CardTitle className="text-2xl">Culto General</CardTitle>
-                  <CardDescription className="text-lg font-semibold text-accent">Domingos 10:30 HRS</CardDescription>
+                  <CardDescription className="text-lg font-semibold text-primary">Domingos 10:30 HRS</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     Aprende de la palabra de Dios cada día y encuentra tu propósito en una comunidad de fe.
                   </p>
-                  <Button asChild className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg">
+                  <Button asChild className="w-full bg-gradient-to-r from-primary to-white/40 hover:from-white/40 hover:to-primary shadow-lg">
                     <Link href="/contacto">Más Información</Link>
                   </Button>
                 </CardContent>
@@ -459,13 +459,13 @@ const recursos = [
                     </div>
                   </div>
                   <CardTitle className="text-2xl">Grupos Pequeños</CardTitle>
-                  <CardDescription className="text-lg font-semibold text-accent">Miércoles 20:30 HRS</CardDescription>
+                  <CardDescription className="text-lg font-semibold text-primary">Miércoles 20:30 HRS</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     Reunión de grupos pequeños vía online (Zoom) para estudiar la Palabra de Dios en comunidad.
                   </p>
-                  <Button asChild variant="outline" className="w-full border-2">
+                  <Button asChild variant="outline" className="w-full border-2 hover:bg-primary">
                     <Link href="/faq">Unirse a Grupos</Link>
                   </Button>
                 </CardContent>

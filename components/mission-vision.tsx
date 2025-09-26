@@ -75,7 +75,7 @@ export function MissionVision() {
             <CardHeader className="text-center relative z-10">
               <div className="flex justify-center mb-4">
                 <div className="bg-accent/20 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Heart className="h-8 w-8 text-red-700" />
+                  <Heart className="h-8 w-8 text-primary" />
                 </div>
               </div>
               <CardTitle className="text-2xl text-foreground">Respeto</CardTitle>

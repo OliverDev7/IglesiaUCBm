@@ -64,15 +64,15 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2 group">
-              <div className="bg-gradient-to-r from-blue-400 to-teal-400 p-2 rounded-full group-hover:scale-105 transition-transform duration-300 shadow-sm">
-                <Heart className="h-6 w-6 text-white" />
+              <div className="bg-gradient-to-r from-blue-400 to-blue-300 border-1 p-2 rounded-full group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                <Heart className="h-6 w-6 text-white/100" />
               </div>
               <span className="text-xl font-bold text-slate-800">Iglesia UCB</span>
             </Link>
             <p className="text-sm text-slate-600 leading-relaxed">
               Una comunidad de fe donde todos son bienvenidos. Descubre el amor de Dios y encuentra tu hogar espiritual.
             </p>
-            <p className="text-sm font-medium text-blue-500 italic border-l-3 border-blue-300 pl-3 py-1 bg-blue-50 rounded-r">
+            <p className="text-sm font-medium text-blue-400 italic border-l-3 border-blue-300 pl-3 py-1 bg-blue-50 rounded-r">
               "Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos." - Mateo 18:20
             </p>
           </div>
@@ -84,23 +84,23 @@ export function Footer() {
               Enlaces Rápidos
             </h3>
             <nav className="flex flex-col space-y-3">
-              <Link href="/sobre-nosotros" className="text-sm text-slate-600 hover:text-blue-500 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
+              <Link href="/sobre-nosotros" className="text-sm text-slate-600 hover:text-blue-400 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
                 <div className="w-1.5 h-1.5 bg-blue-200 rounded-full mr-3"></div>
                 Sobre Nosotros
               </Link>
-              <Link href="/servicios" className="text-sm text-slate-600 hover:text-blue-500 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
+              <Link href="/servicios" className="text-sm text-slate-600 hover:text-blue-400 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
                 <div className="w-1.5 h-1.5 bg-blue-200 rounded-full mr-3"></div>
                 Servicios
               </Link>
-              <Link href="/recursos" className="text-sm text-slate-600 hover:text-blue-500 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
+              <Link href="/recursos" className="text-sm text-slate-600 hover:text-blue-400 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
                 <div className="w-1.5 h-1.5 bg-blue-200 rounded-full mr-3"></div>
                 Recursos
               </Link>
-              <Link href="/galeria" className="text-sm text-slate-600 hover:text-blue-500 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
+              <Link href="/galeria" className="text-sm text-slate-600 hover:text-blue-400 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
                 <div className="w-1.5 h-1.5 bg-blue-200 rounded-full mr-3"></div>
                 Galería
               </Link>
-              <Link href="/blog" className="text-sm text-slate-600 hover:text-blue-500 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
+              <Link href="/blog" className="text-sm text-slate-600 hover:text-blue-400 transition-colors duration-300 hover:translate-x-2 transform flex items-center">
                 <div className="w-1.5 h-1.5 bg-blue-200 rounded-full mr-3"></div>
                 Blog
               </Link>
@@ -110,7 +110,7 @@ export function Footer() {
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-slate-800 flex items-center">
-              <div className="w-1 h-5 bg-teal-400 mr-2 rounded-full"></div>
+              <div className="w-1 h-5 bg-blue-400 mr-2 rounded-full"></div>
               Contacto
             </h3>
             <div className="space-y-4">
@@ -142,7 +142,7 @@ export function Footer() {
           {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-slate-800 flex items-center">
-              <div className="w-1 h-5 bg-indigo-400 mr-2 rounded-full"></div>
+              <div className="w-1 h-5 bg-blue-400 mr-2 rounded-full"></div>
               Devocionales
             </h3>
             <p className="text-sm text-slate-600">Recibe reflexiones diarias y noticias de nuestra comunidad.</p>
@@ -157,7 +157,7 @@ export function Footer() {
               />
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-medium transition-all duration-300 shadow-sm hover:shadow-md"
+                className="w-full bg-gradient-to-r from-blue-400 to-white/10 hover:from-blue-400 hover:to-white/20 cursor-pointer text-white font-medium transition-all duration-300 shadow-sm hover:shadow-md"
                 disabled={isLoading}
               >
                 {isLoading ? "Suscribiendo..." : "Suscribirse"}

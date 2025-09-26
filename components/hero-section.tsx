@@ -29,7 +29,7 @@ export function HeroSection() {
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
               Encuentra Proposito y
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent/50">
                 Esperanza en Cristo
               </span>
             </h1>
@@ -41,8 +41,8 @@ export function HeroSection() {
           {/* Bible Verse */}
           <div className="bg-card/80 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-border/50 shadow-lg">
             <div className="flex items-center justify-center mb-3">
-              <Heart className="h-6 w-6 text-accent mr-2" />
-              <span className="text-sm font-semibold text-accent">Versículo del Día</span>
+              <Heart className="h-6 w-6 text-primary mr-2" />
+              <span className="text-sm font-semibold text-primary">Versículo del día</span>
             </div>
             <blockquote className="text-lg md:text-xl italic text-card-foreground text-balance leading-relaxed">
               "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar."
@@ -52,13 +52,13 @@ export function HeroSection() {
 
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold text-lg px-8 py-3 rounded-full shadow-lg transition-transform hover:scale-105">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary text-white font-semibold text-lg px-8 py-3 rounded-full shadow-lg transition-transform hover:scale-105">
               <Link href="/sobre-nosotros" className="flex items-center">
                 Conócenos Mejor
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3 rounded-full border-2 bg-transparent hover:bg-primary/10 transition-all">
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3 rounded-full border-2 bg-transparent hover:text-black hover:bg-primary/20 transition-all">
               <Link href="/servicios" className="flex items-center">
                 <PlayCircle className="mr-2 h-5 w-5" />
                 Ver Servicios

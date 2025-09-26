@@ -63,7 +63,7 @@ export function ServicesPreview() {
             >
               {/* Highlight Badge */}
               {service.highlight && (
-                <div className="absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold z-10">
+                <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold z-10">
                   Principal
                 </div>
               )}
@@ -71,22 +71,22 @@ export function ServicesPreview() {
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${
                 service.highlight 
-                  ? 'from-primary/5 to-accent/10' 
-                  : 'from-secondary/5 to-primary/5'
+                  ? 'from-primary/5 to-primary/10' 
+                  : 'from-primary/5 to-primary/5'
               }`}></div>
 
               <CardHeader className="text-center relative z-10 pb-4">
                 <div className="flex justify-center mb-4">
                   <div className={`p-4 rounded-2xl ${
                     service.highlight 
-                      ? 'bg-accent/20 text-accent' 
+                      ? 'bg-primary/20 text-primary' 
                       : 'bg-primary/10 text-primary'
                   } group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="h-8 w-8" />
                   </div>
                 </div>
                 <CardTitle className={`text-xl lg:text-2xl ${
-                  service.highlight ? 'text-accent' : 'text-foreground'
+                  service.highlight ? 'text-primary' : 'text-foreground'
                 }`}>
                   {service.title}
                 </CardTitle>
@@ -107,8 +107,8 @@ export function ServicesPreview() {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className={`w-full group-hover:bg-accent group-hover:text-primary transition-colors ${
-                    service.highlight ? 'border-accent text-accent' : ''
+                  className={`w-full group-hover:bg-primary group-hover:text-white hover:bg-primary transition-colors ${
+                    service.highlight ? 'border-primary text-primary' : ''
                   }`}
                 >
                   Más Información
@@ -128,13 +128,13 @@ export function ServicesPreview() {
             Te ayudamos a encontrar el servicio perfecto para ti. Contáctanos y te guiaremos personalmente.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold rounded-full px-8">
+            <Button asChild size="lg" className="bg-primary hover:bg-white/90 text-white hover:text-black font-semibold hover-border-1 rounded-full px-8">
               <Link href="/servicios" className="flex items-center">
                 Ver Calendario Completo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full border-2">
+            <Button asChild variant="outline" size="lg" className="rounded-full border-2 hover:bg-primary/20 hover:text-black">
               <Link href="/contacto">Contactar Ahora</Link>
             </Button>
           </div>

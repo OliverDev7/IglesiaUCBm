@@ -94,14 +94,14 @@ export default function GaleriaPage() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg scale-150"></div>
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg scale-150"></div>
                   <div className="relative bg-background/80 backdrop-blur-sm rounded-full p-4 border border-primary/10 shadow-lg">
-                    <Play className="h-16 w-16 text-accent" />
+                    <Play className="h-16 w-16 text-primary" />
                   </div>
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent/50 bg-clip-text text-transparent">
                 Galería Multimedia
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -124,7 +124,7 @@ export default function GaleriaPage() {
                 <div key={index}>
                   <div className="flex items-center space-x-4 mb-8">
                     <div className="p-3 bg-accent/10 rounded-2xl">
-                      <Calendar className="h-6 w-6 text-accent" />
+                      <Calendar className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900">{evento.titulo}</h3>
                     <span className="text-muted-foreground text-lg">• {evento.fecha}</span>
@@ -142,7 +142,7 @@ export default function GaleriaPage() {
                             />
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
                               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex space-x-2">
-                                <Button variant="secondary" size="sm" className="bg-white/90 backdrop-blur-sm">
+                                <Button variant="secondary" size="sm" className="bg-white/90 cursor-pointer backdrop-blur-sm">
                                   <ZoomIn className="h-4 w-4 mr-1" />
                                   Ampliar
                                 </Button>
@@ -179,7 +179,7 @@ export default function GaleriaPage() {
                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                         <Button
                           size="lg"
-                          className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg transform transition-transform hover:scale-105"
+                          className="bg-gradient-to-r from-primary to-white/10 hover:from-white/90 cursor-pointer hover:to-white hover:text-black shadow-lg transform transition-transform hover:scale-105"
                           onClick={() => openYouTubeVideo(video.youtubeId)}
                         >
                           <Play className="h-6 w-6 mr-2" />
@@ -195,12 +195,12 @@ export default function GaleriaPage() {
                       <div className="flex justify-between items-center text-sm text-muted-foreground">
                         <span>YouTube</span>
                         <div className="flex space-x-2">
-                          <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                          {/*<Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                             <Heart className="h-4 w-4" />
                           </Button>
                           <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                             <Share2 className="h-4 w-4" />
-                          </Button>
+                          </Button>*/}
                         </div>
                       </div>
                     </div>
@@ -223,7 +223,7 @@ export default function GaleriaPage() {
                 <Card key={index} className="group relative overflow-hidden hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-slate-50/80">
                   <CardContent className="p-6 relative z-10">
                     <div className="absolute top-4 left-4">
-                      <Quote className="h-8 w-8 text-accent/20" />
+                      <Quote className="h-8 w-8 text-primary/20" />
                     </div>
                     <p className="text-muted-foreground mb-6 leading-relaxed italic relative z-10">"{testimonio.testimonio}"</p>
                     <div className="flex items-center space-x-4">

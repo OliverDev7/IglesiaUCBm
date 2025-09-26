@@ -92,14 +92,14 @@ export default function ContactoPage() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg scale-150"></div>
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg scale-150"></div>
                   <div className="relative bg-background/80 backdrop-blur-sm rounded-full p-4 border border-primary/10 shadow-lg">
-                    <MessageCircle className="h-16 w-16 text-accent" />
+                    <MessageCircle className="h-16 w-16 text-primary" />
                   </div>
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent/50 bg-clip-text text-transparent">
                 Contáctanos
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -182,9 +182,9 @@ export default function ContactoPage() {
                     <CardDescription className="text-lg">Únete a nosotros en nuestros encuentros semanales</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex justify-between items-center p-3 rounded-xl bg-primary/5">
+                    <div className="flex justify-between items-center p-3 rounded-xl bg-primary/10">
                       <span className="font-semibold text-gray-900">Servicio General</span>
-                      <span className="text-accent font-bold">Dom 10:00 HRS</span>
+                      <span className="text-primary font-bold">Dom 10:00 HRS</span>
                     </div>
                     <div className="flex justify-between items-center p-3 rounded-xl bg-green-50">
                       <span className="font-semibold text-gray-900">Reunión de Jóvenes</span>
@@ -203,8 +203,8 @@ export default function ContactoPage() {
                 <Card className="border-0 shadow-2xl bg-gradient-to-br from-white to-slate-50/80">
                   <CardHeader className="text-center pb-6">
                     <div className="flex justify-center mb-4">
-                      <div className="p-3 bg-accent/10 rounded-2xl">
-                        <Send className="h-8 w-8 text-accent" />
+                      <div className="p-3 bg-primary/10 rounded-2xl">
+                        <Send className="h-8 w-8 text-primary" />
                       </div>
                     </div>
                     <CardTitle className="text-2xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
@@ -212,7 +212,7 @@ export default function ContactoPage() {
                     </CardTitle>
                     <CardDescription className="text-lg">
                       Completa el formulario y nos pondremos en contacto contigo pronto
-                      <span className="block text-sm text-red-500 mt-1">*Por favor, coloca un correo válido*</span>
+                      <span className="block text-sm text-cyan-600 mt-1">*Recuerda colocar un correo valido cuando envies el formulario*</span>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -299,7 +299,7 @@ export default function ContactoPage() {
 
                       <Button 
                         type="submit" 
-                        className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg h-12 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
+                        className="w-full bg-gradient-to-r from-primary to-white/20 hover:from-primary/90 hover:to-primary cursor-pointer shadow-lg h-12 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105"
                         disabled={isLoading}
                       >
                         {isLoading ? (
@@ -353,7 +353,7 @@ export default function ContactoPage() {
             </Card>
 
             <div className="mt-8 text-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg">
+              <Button asChild size="lg" className="bg-gradient-to-r from-primary to-white/20 hover:from-primary/90 hover:to-primary shadow-lg">
                 <a href="https://maps.app.goo.gl/X1LGGuJqFus9B3EM8" target="_blank" rel="noopener noreferrer">
                   <MapPin className="h-5 w-5 mr-2" />
                   Abrir en Google Maps

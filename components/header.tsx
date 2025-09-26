@@ -24,8 +24,8 @@ export function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="bg-accent/20 p-2 rounded-lg group-hover:bg-accent/30 transition-colors">
-              <Cross className="h-6 w-6 md:h-8 md:w-8 text-accent" />
+            <div className="bg-white/10 p-2 rounded-lg group-hover:bg-white/30 transition-colors"> 
+              <Cross className="h-6 w-6 md:h-8 md:w-8 text-white" />
             </div>
             <div>
               <span className="text-xl md:text-2xl font-bold block leading-tight">Iglesia UCB</span>
@@ -39,10 +39,10 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-4 py-2 rounded-lg hover:bg-primary/80 hover:text-accent transition-all duration-200 font-medium text-sm relative group"
+                className="px-4 py-2 rounded-lg hover:bg-primary/80 hover:text-white transition-all duration-200 font-medium text-sm relative group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
               </Link>
             ))}
           </nav>
@@ -51,7 +51,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-primary-foreground hover:bg-primary/80 hover:text-accent transition-colors"
+            className="lg:hidden text-white hover:bg-white hover:text-blue-600 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -66,7 +66,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-primary-foreground hover:bg-accent hover:text-primary transition-colors duration-200 py-3 px-4 rounded-md text-center font-medium"
+                  className="text-primary-foreground hover:bg-white hover:text-primary transition-colors duration-200 py-3 px-4 rounded-md text-center font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

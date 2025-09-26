@@ -39,8 +39,8 @@ export function WelcomeSection() {
         {/* Header Section */}
         <div className="text-center space-y-6 mb-16">
           <div className="flex justify-center">
-            <div className="bg-accent/20 p-4 rounded-2xl border border-accent/30">
-              <Cross className="h-8 w-8 text-accent" />
+            <div className="bg-primary/10 p-4 rounded-2xl border border-primary/30">
+              <Cross className="h-8 w-8 text-primary" />
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
@@ -56,15 +56,15 @@ export function WelcomeSection() {
           {values.map((value, index) => (
             <Card key={index} className="group relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2">
               {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               <CardContent className="p-6 space-y-4 relative z-10 text-center">
                 <div className="flex justify-center">
-                  <div className="bg-primary/10 p-3 rounded-2xl group-hover:bg-accent/20 transition-colors duration-300">
+                  <div className="bg-primary/10 p-3 rounded-2xl group-hover:bg-primary/20 transition-colors duration-300">
                     <value.icon className={`h-8 w-8 ${value.color} group-hover:scale-110 transition-transform duration-300`} />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                   {value.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -85,7 +85,7 @@ export function WelcomeSection() {
           
           <div className="relative z-10">
             <div className="flex justify-center mb-6">
-              <Star className="h-8 w-8 text-accent" />
+              <Star className="h-8 w-8 text-primary" />
             </div>
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
               Nuestra Misión Transformadora

@@ -73,14 +73,14 @@ export default function FAQPage() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg scale-150"></div>
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg scale-150"></div>
                   <div className="relative bg-background/80 backdrop-blur-sm rounded-full p-4 border border-primary/10 shadow-lg">
-                    <HelpCircle className="h-16 w-16 text-accent" />
+                    <HelpCircle className="h-16 w-16 text-primary" />
                   </div>
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent/50 bg-clip-text text-transparent">
                 Preguntas Frecuentes
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -110,7 +110,7 @@ export default function FAQPage() {
                   value={`item-${index}`} 
                   className="border-0 bg-gradient-to-br from-white to-slate-50/80 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-6 px-6 hover:bg-accent/5 rounded-2xl transition-colors">
+                  <AccordionTrigger className="text-left hover:no-underline py-6 px-6 hover:bg-primary/10 rounded-2xl transition-colors">
                     <div className="flex items-center space-x-4">
                       <span className="text-2xl">{item.icono}</span>
                       <span className="text-lg lg:text-xl font-semibold text-gray-900 pr-4 text-left">
@@ -119,7 +119,7 @@ export default function FAQPage() {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-6 px-6">
-                    <div className="bg-accent/5 rounded-xl p-4">
+                    <div className="bg-primary/5 rounded-xl p-4">
                       <p className="text-muted-foreground leading-relaxed text-lg">
                         {item.respuesta}
                       </p>
@@ -154,7 +154,7 @@ export default function FAQPage() {
                     Si no encontraste la respuesta que buscabas, no dudes en contactarnos. 
                     Nuestro equipo pastoral está disponible para conversar contigo.
                   </p>
-                  <Button asChild className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg">
+                  <Button asChild className="w-full bg-gradient-to-r from-primary to-accent/10 hover:from-white/90 hover:to-white hover:text-primary shadow-lg">
                     <Link href="/contacto" className="flex items-center justify-center">
                       <MessageCircle className="h-4 w-4 mr-2" />
                       Contáctanos
@@ -182,7 +182,7 @@ export default function FAQPage() {
                     Explora nuestros recursos espirituales, incluyendo estudios bíblicos, 
                     devocionales y predicaciones que te ayudarán a crecer.
                   </p>
-                  <Button asChild variant="outline" className="w-full border-2">
+                  <Button asChild variant="outline" className="w-full border-2 hover:bg-primary">
                     <Link href="/recursos" className="flex items-center justify-center">
                       <BookOpen className="h-4 w-4 mr-2" />
                       Ver Recursos
@@ -197,7 +197,7 @@ export default function FAQPage() {
         {/* Call to Action */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 lg:p-12">
+            <div className="bg-gradient-to-br from-primary/10 to-white/10 rounded-3xl p-8 lg:p-12 border-1 border-primary">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 ¿Listo para dar el siguiente paso?
               </h2>
@@ -206,13 +206,13 @@ export default function FAQPage() {
                 Todos son bienvenidos, sin importar dónde estés en tu jornada espiritual.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg">
+                <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent/10 hover:from-white/90 hover:to-white hover:text-primary shadow-lg">
                   <Link href="/servicios" className="flex items-center">
                     <Users className="h-4 w-4 mr-2" />
                     Ver Horarios
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-2">
+                <Button asChild variant="outline" size="lg" className="border-2 hover:bg-primary">
                   <Link href="/sobre-nosotros" className="flex items-center">
                     <ArrowRight className="h-4 w-4 mr-2" />
                     Conoce Más

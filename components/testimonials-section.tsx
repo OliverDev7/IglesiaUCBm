@@ -57,9 +57,9 @@ export function TestimonialsSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center space-y-6 mb-16">
-          <div className="inline-flex items-center space-x-2 bg-accent/20 px-4 py-2 rounded-full border border-accent/30">
-            <Quote className="h-4 w-4 text-accent" />
-            <span className="text-sm font-medium text-accent">Testimonios Reales</span>
+          <div className="inline-flex items-center space-x-2 bg-primary/20 px-4 py-2 rounded-full border border-primary/30">
+            <Quote className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Testimonios Reales</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-balance bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
             Vidas Transformadas por Cristo
@@ -73,7 +73,7 @@ export function TestimonialsSection() {
         <div className="relative">
           <Card className="bg-card/80 backdrop-blur-md border-border/50 shadow-xl relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16"></div>
             
             <CardContent className="p-8 md:p-12 relative z-10">
               <div className="flex justify-center mb-6">
@@ -84,7 +84,7 @@ export function TestimonialsSection() {
                 {/* Rating Stars */}
                 <div className="flex justify-center space-x-1">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
 
@@ -99,15 +99,15 @@ export function TestimonialsSection() {
                     <img
                       src={testimonials[currentIndex].image || "/placeholder.svg"}
                       alt={testimonials[currentIndex].name}
-                      className="w-20 h-20 rounded-full object-cover border-4 border-accent/20"
+                      className="w-20 h-20 rounded-full object-cover border-4 border-primary/20"
                     />
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                      <Quote className="h-4 w-4 text-primary" />
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                      <Quote className="h-4 w-4 text-white" />
                     </div>
                   </div>
                   <div>
                     <p className="font-bold text-lg">{testimonials[currentIndex].name}</p>
-                    <p className="text-accent font-medium">{testimonials[currentIndex].role}</p>
+                    <p className="text-primary font-medium">{testimonials[currentIndex].role}</p>
                   </div>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export function TestimonialsSection() {
               variant="outline" 
               size="icon" 
               onClick={prevTestimonial}
-              className="rounded-full border-2 w-12 h-12 hover:bg-accent hover:text-primary transition-all"
+              className="rounded-full border-2 w-12 h-12 hover:bg-primary hover:text-white transition-all"
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
@@ -132,7 +132,7 @@ export function TestimonialsSection() {
                   key={index}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex 
-                      ? "bg-accent scale-125" 
+                      ? "bg-primary scale-125" 
                       : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                   }`}
                   onClick={() => setCurrentIndex(index)}
@@ -144,7 +144,7 @@ export function TestimonialsSection() {
               variant="outline" 
               size="icon" 
               onClick={nextTestimonial}
-              className="rounded-full border-2 w-12 h-12 hover:bg-accent hover:text-primary transition-all"
+              className="rounded-full border-2 w-12 h-12 hover:bg-primary hover:text-white transition-all"
             >
               <ChevronRight className="h-5 w-5" />
             </Button>

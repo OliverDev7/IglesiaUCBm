@@ -64,14 +64,14 @@ export default function ServiciosPage() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-lg scale-150"></div>
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg scale-150"></div>
                   <div className="relative bg-background/80 backdrop-blur-sm rounded-full p-4 border border-primary/10 shadow-lg">
-                    <Calendar className="h-16 w-16 text-accent" />
+                    <Calendar className="h-16 w-16 text-primary" />
                   </div>
                 </div>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-bold text-balance bg-gradient-to-r from-primary to-accent/40 bg-clip-text text-transparent">
                 Servicios y Reuniones
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -96,7 +96,7 @@ export default function ServiciosPage() {
                       </div>
                       <div className="flex-1">
                         <CardTitle className="text-xl text-gray-900">{servicio.titulo}</CardTitle>
-                        <CardDescription className="text-lg font-semibold text-accent mt-1">
+                        <CardDescription className="text-lg font-semibold text-gray-500 mt-1">
                           {servicio.dia} • {servicio.hora}
                         </CardDescription>
                       </div>
@@ -104,10 +104,6 @@ export default function ServiciosPage() {
                   </CardHeader>
                   <CardContent className="relative z-10">
                     <p className="text-gray-700 leading-relaxed mb-4">{servicio.descripcion}</p>
-                    <div className="flex items-center text-sm text-accent font-medium">
-                      <span>Únete a nosotros</span>
-                      <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
-                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -132,8 +128,8 @@ export default function ServiciosPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   <div className="p-8 lg:p-12 space-y-8 bg-gradient-to-br from-white to-slate-50/80">
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-accent/10 rounded-2xl">
-                        <MapPin className="h-6 w-6 text-accent" />
+                      <div className="p-3 bg-primary/10 rounded-2xl">
+                        <MapPin className="h-6 w-6 text-primary" />
                       </div>
                       <div>
                         <h3 className="font-bold text-lg mb-2 text-gray-900">Dirección</h3>
@@ -152,14 +148,14 @@ export default function ServiciosPage() {
                       <div>
                         <h3 className="font-bold text-lg mb-2 text-gray-900">Horarios</h3>
                         <div className="space-y-2 text-muted-foreground">
-                          <p className="flex justify-between"><span>Domingos:</span> <span className="font-semibold text-accent">10:00 HRS</span></p>
-                          <p className="flex justify-between"><span>Sábados:</span> <span className="font-semibold text-accent">16:00 HRS</span></p>
-                          <p className="flex justify-between"><span>Miércoles:</span> <span className="font-semibold text-accent">20:30 HRS</span></p>
+                          <p className="flex justify-between"><span>Domingos:</span> <span className="font-semibold text-primary">10:00 HRS</span></p>
+                          <p className="flex justify-between"><span>Sábados:</span> <span className="font-semibold text-primary">16:00 HRS</span></p>
+                          <p className="flex justify-between"><span>Miércoles:</span> <span className="font-semibold text-primary">20:30 HRS</span></p>
                         </div>
                       </div>
                     </div>
 
-                    <Button asChild size="lg" className="w-full bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg">
+                    <Button asChild size="lg" className="w-full bg-gradient-to-r from-primary to-white/30 hover:from-white/30 hover:to-primary shadow-lg">
                       <a href="https://maps.app.goo.gl/X1LGGuJqFus9B3EM8" target="_blank" rel="noopener noreferrer">
                         <MapPin className="h-4 w-4 mr-2" />
                         Abrir en Google Maps
@@ -189,7 +185,7 @@ export default function ServiciosPage() {
         {/* Call to Action */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 lg:p-12">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-3xl p-8 lg:p-12 border-1 border-primary">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 ¿Primera Vez?
               </h2>
@@ -197,10 +193,10 @@ export default function ServiciosPage() {
                 Si es tu primera visita, queremos que te sientas bienvenido. No dudes en contactarnos si tienes alguna pregunta.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent shadow-lg">
+                <Button asChild size="lg" className="bg-gradient-to-r from-primary to-white/40 hover:from-white/30 hover:to-primary shadow-lg">
                   <Link href="/contacto">Contáctanos</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-2">
+                <Button asChild variant="outline" size="lg" className="border-1 hover:bg-primary">
                   <Link href="/faq">Preguntas Frecuentes</Link>
                 </Button>
               </div>
